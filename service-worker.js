@@ -13,9 +13,9 @@ const appFiles=[
 self.addEventListener("install",(installing)=>{
     console.log("Service Worker: I am being installed, hello world!");
     installing.waitUntil(
-      caches.open("SAMPLE_SITE_V1").then((cache)=>{
+      caches.open(cacheName).then((cache)=>{
         console.log("Service Worker: Caching important offline files");
-        return cache.addAll("appFiles");
+        return cache.addAll(appFiles);
       })
     );
   });
